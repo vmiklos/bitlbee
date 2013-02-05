@@ -130,7 +130,7 @@ def send(sock, txt, tries=10):
 		if not options.conn: return
 		try:
 			sock.sendall(txt)
-		except Exception, s:
+		except socket.error as s:
 			dprint("Warning, sending '%s' failed (%s)." % (txt, s))
 			options.conn.close()
 			options.conn = False
@@ -141,7 +141,7 @@ def send(sock, txt, tries=10):
 				try:
 					 if options.conn: sock.sendall(txt)
 					 options.lock.release()
-				except Exception, s:
+				except socket.error as s:
 					options.lock.release()
 					dprint("Warning, sending '%s' failed (%s). count=%d" % (txt, s, count))
 					time.sleep(1)
