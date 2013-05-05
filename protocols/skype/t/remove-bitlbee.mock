@@ -1,0 +1,10 @@
+>> NOTICE AUTH
+<< NICK alice
+<< USER alice alice localhost :Alice
+>> PRIVMSG &bitlbee
+<< PRIVMSG &bitlbee :account add skype alice foo
+<< PRIVMSG &bitlbee :account skype on
+>> :bob!bob@skype.com JOIN :&bitlbee
+<< PRIVMSG &bitlbee :remove bob
+>> :bob!bob@skype.com QUIT :Removed
+>> PRIVMSG &bitlbee :Buddy `bob@skype.com' (nick bob) removed from contact list

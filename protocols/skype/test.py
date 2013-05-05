@@ -141,6 +141,9 @@ class Test(unittest.TestCase):
 	
 	def testAwaySet(self):
 		self.mock("away-set")
+	
+	def testRemove(self):
+		self.mock("remove")
 
 if __name__ == '__main__':
 	setupSkyped()
